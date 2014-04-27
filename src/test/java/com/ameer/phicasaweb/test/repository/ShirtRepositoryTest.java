@@ -7,8 +7,8 @@
 package com.ameer.phicasaweb.test.repository;
 
 import com.ameer.phicasaweb.app.conf.ConnectionConfig;
-import com.ameer.phicasaweb.domain.customer.VIPCustomer;
-import com.ameer.phicasaweb.repository.VIPCustomerRepository;
+import com.ameer.phicasaweb.domain.garment.Shirt;
+import com.ameer.phicasaweb.repository.ShirtRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -23,62 +23,63 @@ import org.testng.annotations.Test;
  *
  * @author Scrappy
  */
-public class VIPCustomerRepositoryTest {
+public class ShirtRepositoryTest {
     
-    public static ApplicationContext ctx;
+   public static ApplicationContext ctx;
     private Long id;
-    private VIPCustomerRepository repo;
+    private ShirtRepository repo;
     
-    public VIPCustomerRepositoryTest() {
+    public ShirtRepositoryTest() {
     }
 
     @Test
-     public void createVIPCustomer() {
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer p = new VIPCustomer.Builder("Ameer")
-                 .surname("Scrappy")
+     public void createShirt() {
+         repo = ctx.getBean(ShirtRepository.class);
+         Shirt p = new Shirt.Builder("Ameer")
+                 .garmentColor("Pink")
+                 .garmentSize("Large")
                  .build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);     
      }
      
-     @Test(dependsOnMethods = "createVIPCustomer")
-     public void readVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
-         Assert.assertEquals(person.getSurname(), "Scrappy");
+     @Test(dependsOnMethods = "createShirt")
+     public void readShirt(){
+         repo = ctx.getBean(ShirtRepository.class);
+         Shirt obj = repo.findOne(id);
+         Assert.assertEquals(obj.getColor(), "Pink");
          
      }
      
-    @Test(dependsOnMethods = "readVIPCustomer")
-     private void updateVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
-         VIPCustomer updatedVIPCustomer = new VIPCustomer.Builder("Ameer")
-                 .surname("Mallagie")
+    @Test(dependsOnMethods = "readShirt")
+     private void updateShirt(){
+         repo = ctx.getBean(ShirtRepository.class);
+         Shirt updatedVIPCustomer = new Shirt.Builder("Ameer")
+                 .garmentColor("Blue")
+                 .garmentSize("Large")
                  .build();
         
          repo.save(updatedVIPCustomer);
          
-         Assert.assertEquals(updatedVIPCustomer.getSurname(), "Mallagie");
+         Assert.assertEquals(updatedVIPCustomer.getColor(), "Blue");
          
      }
      
-    @Test(dependsOnMethods = "updateVIPCustomer")
+    @Test(dependsOnMethods = "updateShirt")
      private void deleteVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
-         repo.delete(person);
+         repo = ctx.getBean(ShirtRepository.class);
+         Shirt obj = repo.findOne(id);
+         repo.delete(obj);
          
-         VIPCustomer deletedVIPCustomer = repo.findOne(id);
+         Shirt deletedVIPCustomer = repo.findOne(id);
          
          Assert.assertNull(deletedVIPCustomer);
      }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);		
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass

@@ -7,8 +7,8 @@
 package com.ameer.phicasaweb.test.repository;
 
 import com.ameer.phicasaweb.app.conf.ConnectionConfig;
-import com.ameer.phicasaweb.domain.customer.VIPCustomer;
-import com.ameer.phicasaweb.repository.VIPCustomerRepository;
+import com.ameer.phicasaweb.domain.employee.PatternMaker;
+import com.ameer.phicasaweb.repository.PatternMakerRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -23,39 +23,41 @@ import org.testng.annotations.Test;
  *
  * @author Scrappy
  */
-public class VIPCustomerRepositoryTest {
+public class PatternMakerRepositoryTest {
     
     public static ApplicationContext ctx;
     private Long id;
-    private VIPCustomerRepository repo;
+    private PatternMakerRepository repo;
     
-    public VIPCustomerRepositoryTest() {
+    public PatternMakerRepositoryTest() {
     }
 
     @Test
-     public void createVIPCustomer() {
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer p = new VIPCustomer.Builder("Ameer")
+     public void createPatternMaker() {
+         repo = ctx.getBean(PatternMakerRepository.class);
+         PatternMaker p = new PatternMaker.Builder("Ameer")
                  .surname("Scrappy")
+                 .salary(2000.0)
                  .build();
          repo.save(p);
          id = p.getId();
          Assert.assertNotNull(p);     
      }
      
-     @Test(dependsOnMethods = "createVIPCustomer")
-     public void readVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
+     @Test(dependsOnMethods = "createPatternMaker")
+     public void readPatternMaker(){
+         repo = ctx.getBean(PatternMakerRepository.class);
+         PatternMaker person = repo.findOne(id);
          Assert.assertEquals(person.getSurname(), "Scrappy");
          
      }
      
-    @Test(dependsOnMethods = "readVIPCustomer")
-     private void updateVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
-         VIPCustomer updatedVIPCustomer = new VIPCustomer.Builder("Ameer")
+    @Test(dependsOnMethods = "readPatternMaker")
+     private void updatePatternMaker(){
+         repo = ctx.getBean(PatternMakerRepository.class);
+         PatternMaker person = repo.findOne(id);
+         PatternMaker updatedVIPCustomer = new PatternMaker.Builder("Ameer")
+                 .salary(10000.0)
                  .surname("Mallagie")
                  .build();
         
@@ -65,20 +67,20 @@ public class VIPCustomerRepositoryTest {
          
      }
      
-    @Test(dependsOnMethods = "updateVIPCustomer")
+    @Test(dependsOnMethods = "updatePatternMaker")
      private void deleteVIPCustomer(){
-         repo = ctx.getBean(VIPCustomerRepository.class);
-         VIPCustomer person = repo.findOne(id);
+         repo = ctx.getBean(PatternMakerRepository.class);
+         PatternMaker person = repo.findOne(id);
          repo.delete(person);
          
-         VIPCustomer deletedVIPCustomer = repo.findOne(id);
+         PatternMaker deletedVIPCustomer = repo.findOne(id);
          
          Assert.assertNull(deletedVIPCustomer);
      }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);		
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass
