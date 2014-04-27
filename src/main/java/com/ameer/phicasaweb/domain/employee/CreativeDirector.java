@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.ameer.phicasaweb.domain.customer;
+package com.ameer.phicasaweb.domain.employee;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,49 +17,58 @@ import javax.persistence.Id;
  * @author Scrappy
  */
 @Entity
-public class VIPCustomer implements Serializable, Customer {
+public class CreativeDirector implements Serializable, Employee {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String surname;
+    private String surname;  
+    private Double salary;
 
-    private VIPCustomer(){
+    private CreativeDirector(){
         
     }
     
-    private VIPCustomer(Builder build){
+    private CreativeDirector(Builder build){
+        
         id = build.id;
         name = build.name;
         surname = build.surname;
+        salary = build.salary;        
     }
     
     public static class Builder{
         
-        private Long id;    
+        private Long id;
         private String name;
-        private String surname;   
+        private String surname; 
+        private Double salary;
         
-        public Builder(String cusName){
-            this.name = cusName;
+        public Builder(String empName){
+            this.name = empName;
         }
-    
-        public Builder id(Long cusID){
-            id = cusID;
+        
+        public Builder id(Long empID){
+            id = empID;
             return this;
         }
         
-        public Builder surname(String CusSurname){
-            surname = CusSurname;
+        public Builder surname(String empSurname){
+            surname = empSurname;
             return this;
-        }    
-        
-        public VIPCustomer build(){
-            return new VIPCustomer(this);
         }
+        
+        public Builder salary(Double sal){
+            salary = sal;
+            return this;
+        }
+        
+        public CreativeDirector build(){
+            return new CreativeDirector(this);
+        }
+        
     }
-    
     public Long getId() {
         return id;
     }
@@ -72,7 +81,11 @@ public class VIPCustomer implements Serializable, Customer {
     @Override
     public String getSurname() {
         return surname;
-    }   
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
 
     @Override
     public int hashCode() {
@@ -84,16 +97,19 @@ public class VIPCustomer implements Serializable, Customer {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VIPCustomer)) {
+        if (!(object instanceof CreativeDirector)) {
             return false;
         }
-        VIPCustomer other = (VIPCustomer) object;
-        return (this.id != null || other.id == null) && (this.id == null || this.id.equals(other.id));
+        CreativeDirector other = (CreativeDirector) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "com.ameer.phicasaweb.domain.customer.VIPCustomer[ id=" + id + " ]";
+        return "com.ameer.phicasaweb.domain.employee.CreativeDirector[ id=" + id + " ]";
     }
     
 }

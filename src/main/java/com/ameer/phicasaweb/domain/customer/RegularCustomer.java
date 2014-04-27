@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author Scrappy
  */
 @Entity
-public class VIPCustomer implements Serializable, Customer {
+public class RegularCustomer implements Serializable, Customer {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,11 +25,11 @@ public class VIPCustomer implements Serializable, Customer {
     private String name;
     private String surname;
 
-    private VIPCustomer(){
+    private RegularCustomer(){
         
     }
     
-    private VIPCustomer(Builder build){
+    private RegularCustomer(Builder build){
         id = build.id;
         name = build.name;
         surname = build.surname;
@@ -55,8 +55,8 @@ public class VIPCustomer implements Serializable, Customer {
             return this;
         }    
         
-        public VIPCustomer build(){
-            return new VIPCustomer(this);
+        public RegularCustomer build(){
+            return new RegularCustomer(this);
         }
     }
     
@@ -72,7 +72,7 @@ public class VIPCustomer implements Serializable, Customer {
     @Override
     public String getSurname() {
         return surname;
-    }   
+    }
 
     @Override
     public int hashCode() {
@@ -84,16 +84,19 @@ public class VIPCustomer implements Serializable, Customer {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VIPCustomer)) {
+        if (!(object instanceof RegularCustomer)) {
             return false;
         }
-        VIPCustomer other = (VIPCustomer) object;
-        return (this.id != null || other.id == null) && (this.id == null || this.id.equals(other.id));
+        RegularCustomer other = (RegularCustomer) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "com.ameer.phicasaweb.domain.customer.VIPCustomer[ id=" + id + " ]";
+        return "com.ameer.phicasaweb.domain.customer.RegularCustomer[ id=" + id + " ]";
     }
     
 }
