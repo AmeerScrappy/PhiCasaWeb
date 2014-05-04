@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.garment.Underware;
+import com.ameer.phicasaweb.repository.UnderwareRepository;
+import com.ameer.phicasaweb.services.TotalUnderwareService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalUnderwareServiceImpl {
+public class TotalUnderwareServiceImpl implements TotalUnderwareService{
     
+    @Autowired
+    private UnderwareRepository customerRepository;
+    
+    @Override
+    public List<Underware> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

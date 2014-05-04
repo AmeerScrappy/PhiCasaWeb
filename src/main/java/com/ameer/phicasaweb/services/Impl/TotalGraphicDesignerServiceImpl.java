@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.GraphicDesigner;
+import com.ameer.phicasaweb.repository.GraphicDesignerRepository;
+import com.ameer.phicasaweb.services.TotalGraphicDesignerService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalGraphicDesignerServiceImpl {
+public class TotalGraphicDesignerServiceImpl implements TotalGraphicDesignerService{
     
+    @Autowired
+    private GraphicDesignerRepository customerRepository;
+    
+    @Override
+    public List<GraphicDesigner> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

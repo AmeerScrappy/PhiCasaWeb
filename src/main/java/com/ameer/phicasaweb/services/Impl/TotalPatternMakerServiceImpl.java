@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.PatternMaker;
+import com.ameer.phicasaweb.repository.PatternMakerRepository;
+import com.ameer.phicasaweb.services.TotalPatternMakerService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalPatternMakerServiceImpl {
+public class TotalPatternMakerServiceImpl implements TotalPatternMakerService{
     
+    @Autowired
+    private PatternMakerRepository customerRepository;
+    
+    @Override
+    public List<PatternMaker> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

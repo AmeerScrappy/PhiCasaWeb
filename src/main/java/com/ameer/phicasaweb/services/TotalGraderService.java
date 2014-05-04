@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface TotaGraderService {
+public interface TotalGraderService {
     
     public List<Grader> getTotal();
     

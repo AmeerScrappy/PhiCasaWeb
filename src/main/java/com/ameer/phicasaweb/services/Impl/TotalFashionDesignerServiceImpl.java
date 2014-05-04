@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.FashionDesigner;
+import com.ameer.phicasaweb.repository.FashionDesignerRepository;
+import com.ameer.phicasaweb.services.TotalFashionDesignerService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalFashionDesignerServiceImpl {
+public class TotalFashionDesignerServiceImpl implements TotalFashionDesignerService{
     
+    @Autowired
+    private FashionDesignerRepository customerRepository;
+    
+    @Override
+    public List<FashionDesigner> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

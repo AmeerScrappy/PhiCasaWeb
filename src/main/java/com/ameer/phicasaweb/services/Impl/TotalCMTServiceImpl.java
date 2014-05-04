@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.CMT;
+import com.ameer.phicasaweb.repository.CMTRepository;
+import com.ameer.phicasaweb.services.TotalCMTService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalCMTServiceImpl {
+public class TotalCMTServiceImpl implements TotalCMTService{
     
+    @Autowired
+    private CMTRepository customerRepository;
+    
+    @Override
+    public List<CMT> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

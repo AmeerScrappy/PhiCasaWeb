@@ -6,10 +6,25 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.customer.RegularCustomer;
+import com.ameer.phicasaweb.repository.RegularCustomerRepository;
+import com.ameer.phicasaweb.services.TotalRegularCustomerService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalRegularCustomerServiceImpl {
+@Service
+public class TotalRegularCustomerServiceImpl implements TotalRegularCustomerService{
     
+    @Autowired
+    private RegularCustomerRepository customerRepository;
+    
+    @Override
+    public List<RegularCustomer> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

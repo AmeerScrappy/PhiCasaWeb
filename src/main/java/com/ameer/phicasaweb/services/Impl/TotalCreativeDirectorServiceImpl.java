@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.CreativeDirector;
+import com.ameer.phicasaweb.repository.CreativeDirectorRepository;
+import com.ameer.phicasaweb.services.TotalCreativeDirectorService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalCreativeDirectorServiceImpl {
+public class TotalCreativeDirectorServiceImpl implements TotalCreativeDirectorService{
     
+    @Autowired
+    private CreativeDirectorRepository customerRepository;
+    
+    @Override
+    public List<CreativeDirector> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

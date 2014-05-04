@@ -6,10 +6,24 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.garment.Skirt;
+import com.ameer.phicasaweb.repository.SkirtRepository;
+import com.ameer.phicasaweb.services.TotalSkirtService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalSkirtServiceImpl {
+public class TotalSkirtServiceImpl implements TotalSkirtService{
+    
+    @Autowired
+    private SkirtRepository customerRepository;
+    
+    @Override
+    public List<Skirt> getTotal() {
+    return customerRepository.findAll();    
+    }
     
 }

@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.garment.Pants;
+import com.ameer.phicasaweb.repository.PantsRepository;
+import com.ameer.phicasaweb.services.TotalPantsService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalPantsServiceImpl {
+public class TotalPantsServiceImpl implements TotalPantsService{
     
+    @Autowired
+    private PantsRepository customerRepository;
+    
+    @Override
+    public List<Pants> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

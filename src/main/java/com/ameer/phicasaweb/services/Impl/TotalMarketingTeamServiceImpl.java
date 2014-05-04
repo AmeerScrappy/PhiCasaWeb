@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.MarketingTeam;
+import com.ameer.phicasaweb.repository.MarketingTeamRepository;
+import com.ameer.phicasaweb.services.TotalMarketingTeamService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalMarketingTeamServiceImpl {
+public class TotalMarketingTeamServiceImpl implements TotalMarketingTeamService{
     
+    @Autowired
+    private MarketingTeamRepository customerRepository;
+    
+    @Override
+    public List<MarketingTeam> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.employee.DistributionTeam;
+import com.ameer.phicasaweb.repository.DistributionTeamRepository;
+import com.ameer.phicasaweb.services.TotalDistributionTeamService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalDistributionTeamServiceImpl {
+public class TotalDistributionTeamServiceImpl implements TotalDistributionTeamService{
     
+    @Autowired
+    private DistributionTeamRepository customerRepository;
+    
+    @Override
+    public List<DistributionTeam> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

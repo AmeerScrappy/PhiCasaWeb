@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.garment.Knits;
+import com.ameer.phicasaweb.repository.KnitsRepository;
+import com.ameer.phicasaweb.services.TotalKnitsService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalKnitsServiceImpl {
+public class TotalKnitsServiceImpl implements TotalKnitsService{
     
+    @Autowired
+    private KnitsRepository customerRepository;
+    
+    @Override
+    public List<Knits> getTotal() {
+    return customerRepository.findAll();    
+    }
 }

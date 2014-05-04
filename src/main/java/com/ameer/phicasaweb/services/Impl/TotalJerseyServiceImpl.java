@@ -6,10 +6,23 @@
 
 package com.ameer.phicasaweb.services.Impl;
 
+import com.ameer.phicasaweb.domain.garment.Jersey;
+import com.ameer.phicasaweb.repository.JerseyRepository;
+import com.ameer.phicasaweb.services.TotalJerseyService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  *
  * @author Scrappy
  */
-public class TotalJerseyServiceImpl {
+public class TotalJerseyServiceImpl implements TotalJerseyService{
     
+    @Autowired
+    private JerseyRepository customerRepository;
+    
+    @Override
+    public List<Jersey> getTotal() {
+    return customerRepository.findAll();    
+    }
 }
