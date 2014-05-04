@@ -8,6 +8,7 @@ package com.ameer.phicasaweb.services;
 
 import com.ameer.phicasaweb.domain.customer.VIPCustomer;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *

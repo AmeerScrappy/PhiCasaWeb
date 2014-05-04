@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.BlouseRepository;
 import com.ameer.phicasaweb.services.TotalBlouseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalBlouseServiceImpl implements TotalBlouseService{
     
     @Autowired

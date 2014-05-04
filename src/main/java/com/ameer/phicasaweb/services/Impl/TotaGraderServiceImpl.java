@@ -11,13 +11,12 @@ import com.ameer.phicasaweb.repository.GraderRepository;
 import com.ameer.phicasaweb.services.TotalGraderService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-
+import org.springframework.stereotype.Service;
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotaGraderServiceImpl implements TotalGraderService{
     
     @Autowired

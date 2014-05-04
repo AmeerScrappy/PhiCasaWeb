@@ -6,11 +6,19 @@
 
 package com.ameer.phicasaweb.test.services;
 
+import com.ameer.phicasaweb.app.conf.ConnectionConfig;
+import com.ameer.phicasaweb.domain.employee.SalesTeam;
+import com.ameer.phicasaweb.services.TotalSalesTeamService;
+import java.util.List;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
@@ -21,14 +29,22 @@ public class TotalSalesTeamServiceTest {
     public TotalSalesTeamServiceTest() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    public static ApplicationContext ctx;
+    private TotalSalesTeamService service;
+   
+   
+    @Test
+     public void total() {
+         service = ctx.getBean(TotalSalesTeamService.class);
+         List<SalesTeam> entities = service.getTotal();
+         
+         Assert.assertEquals(0, entities.size(), " Expect none");
+     
+     }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+         ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass

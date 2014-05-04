@@ -9,6 +9,7 @@ package com.ameer.phicasaweb.test.repository;
 import com.ameer.phicasaweb.app.conf.ConnectionConfig;
 import com.ameer.phicasaweb.domain.customer.VIPCustomer;
 import com.ameer.phicasaweb.repository.VIPCustomerRepository;
+import com.ameer.phicasaweb.repository.VIPCustomerRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;

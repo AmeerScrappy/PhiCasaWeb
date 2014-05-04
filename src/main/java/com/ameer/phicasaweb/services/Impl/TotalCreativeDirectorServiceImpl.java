@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.CreativeDirectorRepository;
 import com.ameer.phicasaweb.services.TotalCreativeDirectorService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalCreativeDirectorServiceImpl implements TotalCreativeDirectorService{
     
     @Autowired

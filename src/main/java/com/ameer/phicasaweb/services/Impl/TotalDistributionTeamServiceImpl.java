@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.DistributionTeamRepository;
 import com.ameer.phicasaweb.services.TotalDistributionTeamService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalDistributionTeamServiceImpl implements TotalDistributionTeamService{
     
     @Autowired

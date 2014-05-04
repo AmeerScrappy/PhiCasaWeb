@@ -6,11 +6,19 @@
 
 package com.ameer.phicasaweb.test.services;
 
+import com.ameer.phicasaweb.app.conf.ConnectionConfig;
+import com.ameer.phicasaweb.domain.employee.CMT;
+import com.ameer.phicasaweb.services.TotalCMTService;
+import java.util.List;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
@@ -21,14 +29,22 @@ public class TotalCMTServiceTest {
     public TotalCMTServiceTest() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    public static ApplicationContext ctx;
+    private TotalCMTService service;
+   
+   
+    @Test
+     public void total() {
+         service = ctx.getBean(TotalCMTService.class);
+         List<CMT> entities = service.getTotal();
+         
+         Assert.assertEquals(0, entities.size(), " Expect none");
+     
+     }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
+         ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
     }
 
     @AfterClass

@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.PantsRepository;
 import com.ameer.phicasaweb.services.TotalPantsService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalPantsServiceImpl implements TotalPantsService{
     
     @Autowired

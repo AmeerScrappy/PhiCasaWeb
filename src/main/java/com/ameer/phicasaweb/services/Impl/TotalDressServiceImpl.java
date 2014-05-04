@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.DressRepository;
 import com.ameer.phicasaweb.services.TotalDressService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalDressServiceImpl implements TotalDressService{
     
     @Autowired

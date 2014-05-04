@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.SalesTeamRepository;
 import com.ameer.phicasaweb.services.TotalSalesTeamService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalSalesTeamServiceImpl implements TotalSalesTeamService{
     
     @Autowired

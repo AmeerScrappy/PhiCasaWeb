@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.GraphicDesignerRepository;
 import com.ameer.phicasaweb.services.TotalGraphicDesignerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalGraphicDesignerServiceImpl implements TotalGraphicDesignerService{
     
     @Autowired

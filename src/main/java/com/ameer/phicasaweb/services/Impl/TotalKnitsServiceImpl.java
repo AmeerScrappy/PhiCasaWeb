@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.KnitsRepository;
 import com.ameer.phicasaweb.services.TotalKnitsService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalKnitsServiceImpl implements TotalKnitsService{
     
     @Autowired

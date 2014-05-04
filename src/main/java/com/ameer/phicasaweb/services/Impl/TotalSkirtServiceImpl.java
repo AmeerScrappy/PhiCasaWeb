@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.SkirtRepository;
 import com.ameer.phicasaweb.services.TotalSkirtService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalSkirtServiceImpl implements TotalSkirtService{
     
     @Autowired

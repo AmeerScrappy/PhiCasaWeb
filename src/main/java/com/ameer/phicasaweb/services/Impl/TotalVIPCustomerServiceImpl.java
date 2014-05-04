@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.VIPCustomerRepository;
 import com.ameer.phicasaweb.services.TotalVIPCustomerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalVIPCustomerServiceImpl implements TotalVIPCustomerService{
     
     @Autowired

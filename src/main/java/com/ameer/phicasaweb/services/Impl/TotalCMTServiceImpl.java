@@ -11,11 +11,13 @@ import com.ameer.phicasaweb.repository.CMTRepository;
 import com.ameer.phicasaweb.services.TotalCMTService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Scrappy
  */
+@Service
 public class TotalCMTServiceImpl implements TotalCMTService{
     
     @Autowired
