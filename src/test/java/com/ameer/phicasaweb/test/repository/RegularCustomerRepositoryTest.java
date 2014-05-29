@@ -9,6 +9,7 @@ package com.ameer.phicasaweb.test.repository;
 import com.ameer.phicasaweb.app.conf.ConnectionConfig;
 import com.ameer.phicasaweb.domain.customer.RegularCustomer;
 import com.ameer.phicasaweb.repository.RegularCustomerRepository;
+import com.ameer.phicasaweb.test.ConnectionConfigTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -78,7 +79,7 @@ public class RegularCustomerRepositoryTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
 		
     }
 

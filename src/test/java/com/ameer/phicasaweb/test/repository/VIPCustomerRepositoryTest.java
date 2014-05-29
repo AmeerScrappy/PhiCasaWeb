@@ -6,14 +6,12 @@
 
 package com.ameer.phicasaweb.test.repository;
 
-import com.ameer.phicasaweb.app.conf.ConnectionConfig;
 import com.ameer.phicasaweb.domain.customer.VIPCustomer;
 import com.ameer.phicasaweb.repository.VIPCustomerRepository;
-import com.ameer.phicasaweb.repository.VIPCustomerRepository;
+import com.ameer.phicasaweb.test.ConnectionConfigTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
-import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -79,7 +77,7 @@ public class VIPCustomerRepositoryTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ctx = new AnnotationConfigApplicationContext(ConnectionConfig.class);		
+        ctx = new AnnotationConfigApplicationContext(ConnectionConfigTest.class);
     }
 
     @AfterClass

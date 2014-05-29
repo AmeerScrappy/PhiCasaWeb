@@ -24,6 +24,7 @@ public class RegularCustomer implements Serializable, Customer {
     private Long id;
     private String name;
     private String surname;
+    private Double paid;
 
     private RegularCustomer(){
         
@@ -33,13 +34,15 @@ public class RegularCustomer implements Serializable, Customer {
         id = build.id;
         name = build.name;
         surname = build.surname;
+        paid = build.paid;
     }
     
     public static class Builder{
         
         private Long id;    
         private String name;
-        private String surname;   
+        private String surname;  
+        private Double paid; 
         
         public Builder(String cusName){
             this.name = cusName;
@@ -54,6 +57,11 @@ public class RegularCustomer implements Serializable, Customer {
             surname = CusSurname;
             return this;
         }    
+        
+        public Builder paid(Double p){
+            paid = p;
+            return this;
+        }
         
         public RegularCustomer build(){
             return new RegularCustomer(this);
@@ -72,6 +80,10 @@ public class RegularCustomer implements Serializable, Customer {
     @Override
     public String getSurname() {
         return surname;
+    }
+    
+    public Double getPaid() {
+        return paid;
     }
 
     @Override

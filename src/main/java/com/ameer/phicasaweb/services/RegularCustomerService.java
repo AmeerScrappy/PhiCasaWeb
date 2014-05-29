@@ -13,8 +13,12 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface TotalRegularCustomerService {
+public interface RegularCustomerService extends Services <RegularCustomer, Long>{
     
-    public List<RegularCustomer> getTotal();
+    public List<RegularCustomer> getAmtSpendAbove(Double i);
+    public List<RegularCustomer> getAmtSpendBelow(Double i);
+    
+    public RegularCustomer getCustomerByName(String name);
+    public int getNumberOfCustomer();
     
 }

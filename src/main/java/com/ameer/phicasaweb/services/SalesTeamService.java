@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface TotalSalesTeamService {
+public interface SalesTeamService {
     
     public List<SalesTeam> getTotal();
     

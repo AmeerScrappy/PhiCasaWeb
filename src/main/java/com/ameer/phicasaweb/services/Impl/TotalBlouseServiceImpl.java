@@ -8,7 +8,7 @@ package com.ameer.phicasaweb.services.Impl;
 
 import com.ameer.phicasaweb.domain.garment.Blouse;
 import com.ameer.phicasaweb.repository.BlouseRepository;
-import com.ameer.phicasaweb.services.TotalBlouseService;
+import com.ameer.phicasaweb.services.BlouseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @author Scrappy
  */
 @Service
-public class TotalBlouseServiceImpl implements TotalBlouseService{
+public class TotalBlouseServiceImpl implements BlouseService{
     
     @Autowired
     private BlouseRepository customerRepository;

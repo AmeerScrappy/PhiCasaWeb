@@ -4,17 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.ameer.phicasaweb.services;
-
-import com.ameer.phicasaweb.domain.garment.Blouse;
-import java.util.List;
+package com.ameer.phicasaweb;
 
 /**
  *
  * @author Scrappy
  */
-public interface TotalBlouseService {
-    
-    public List<Blouse> getTotal();
+public interface Application {
     
 }
