@@ -13,8 +13,12 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface ClientSpendService {
+public interface ClientSpendService extends Services <Client, Long>{
     
     public List<Client> getAmtSpendAbove(Double i);
     public List<Client> getAmtSpendBelow(Double i);
+    
+    public Client getClientByName(String name);
+    public int getNumberOfClient();
+    
 }

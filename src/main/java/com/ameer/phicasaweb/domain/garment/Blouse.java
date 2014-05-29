@@ -26,6 +26,7 @@ public class Blouse implements Serializable {
     private String size;
     private String color;
     private String fabric;
+    private Double price;
     
     private Blouse(){
         
@@ -36,6 +37,7 @@ public class Blouse implements Serializable {
         size = build.size;
         color = build.color;
         fabric = build.fabric;
+        price = build.price;
     }
     
     public static class Builder{
@@ -45,6 +47,7 @@ public class Blouse implements Serializable {
         private String size;
         private String color;
         private String fabric;
+        private Double price;
         
         public Builder(String garName){
             this.name = garName;
@@ -67,6 +70,11 @@ public class Blouse implements Serializable {
         
         public Builder garmentFabric(String fab){
             fabric = fab;
+            return this;
+        }
+        
+        public Builder garmentPrice(Double pr){
+            price = pr;
             return this;
         }
         
@@ -94,6 +102,10 @@ public class Blouse implements Serializable {
 
     public String getFabric() {
         return fabric;
+    }
+    
+    public Double getPrice() {
+        return price;
     }
 
     @Override

@@ -99,6 +99,4 @@ public class RegularCustomerServiceImpl implements RegularCustomerService{
         return rcs.size();
     }
 
-    
-
 }

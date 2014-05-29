@@ -13,8 +13,12 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface SalesTeamService {
+public interface SalesTeamService extends Services <SalesTeam, Long>{
     
-    public List<SalesTeam> getTotal();
+    public List<SalesTeam> getAmtSalaryAbove(Double i);
+    public List<SalesTeam> getAmtSalaryBelow(Double i);
+    
+    public SalesTeam getSalesPersonByName(String name);
+    public int getNumberOfSalesPeople();
     
 }

@@ -13,8 +13,12 @@ import java.util.List;
  *
  * @author Scrappy
  */
-public interface BlouseService {
+public interface BlouseService extends Services <Blouse, Long>{
     
-    public List<Blouse> getTotal();
+    public List<Blouse> getAmtPriceAbove(Double i);
+    public List<Blouse> getAmtPriceBelow(Double i);
+    
+    public Blouse getBlouseByName(String name);
+    public int getNumberOfBlouse();
     
 }
