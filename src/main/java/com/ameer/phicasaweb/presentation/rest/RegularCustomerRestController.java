@@ -8,6 +8,7 @@ package com.ameer.phicasaweb.presentation.rest;
 
 import com.ameer.phicasaweb.domain.customer.RegularCustomer;
 import com.ameer.phicasaweb.services.RegularCustomerService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class RegularCustomerRestController {
     @Autowired
     private RegularCustomerService customerService;
     
-    @RequestMapping(value = "create",method = RequestMethod.POST) // This the uri e.g http://localhost:8084/askweb/api/club/create
+    @RequestMapping(value = "create",method = RequestMethod.PUT) // This the uri e.g http://localhost:8084/askweb/api/club/create
     @ResponseBody //Converts output or response to JSON String
     public String create(@RequestBody RegularCustomer customer) { // @RequestBody for converting incoming JSON call to Object
         customerService.persist(customer);
@@ -48,4 +49,10 @@ public class RegularCustomerRestController {
         return null;
     }
     
+    @RequestMapping(value = "regularcustomers",method = RequestMethod.GET) // Always Put HTTP Method
+    @ResponseBody
+    public List<RegularCustomer> getCustomers() {
+        System.out.println("All Customers");
+        return customerService.findAll();
+    }
 }

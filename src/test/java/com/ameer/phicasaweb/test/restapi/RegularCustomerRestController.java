@@ -33,7 +33,7 @@ public class RegularCustomerRestController {
         RegularCustomer customer = new RegularCustomer.Builder("Twisp").build();
         HttpEntity<RegularCustomer> requestEntity = new HttpEntity<>(customer, getContentType());
         ResponseEntity<String> responseEntity = restTemplate
-                .exchange(URL + "api/regularcustomer/create", HttpMethod.POST, requestEntity, String.class);
+                .exchange(URL + "api/regularcustomer/create", HttpMethod.PUT, requestEntity, String.class);
         System.out.println(" THE RESPONSE BODY " + responseEntity.getBody());
         System.out.println(" THE RESPONSE STATUS CODE " + responseEntity.getStatusCode());
         System.out.println(" THE RESPONSE IS HEADERS " + responseEntity.getHeaders());
@@ -68,6 +68,18 @@ public class RegularCustomerRestController {
         RegularCustomer customer = responseEntity.getBody();
         
         Assert.assertNotNull(customer);
+    }
+    
+    @Test
+    public void testGetAllCustomer(){
+        HttpEntity<?> requestEntity = getHttpEntity();
+        ResponseEntity<RegularCustomer[]> responseEntity = restTemplate.exchange(URL + "api/regularcustomer/regularcustomers", HttpMethod.GET, requestEntity, RegularCustomer[].class);
+        RegularCustomer[] customers = responseEntity.getBody();
+        for(RegularCustomer customer : customers){
+            System.out.println("The Customer's Name is " + customer.getName());
+        }
+        
+        Assert.assertTrue(customers.length > 0);
     }
     private HttpEntity<?> getHttpEntity(){
          HttpHeaders requestHeaders = new HttpHeaders();
